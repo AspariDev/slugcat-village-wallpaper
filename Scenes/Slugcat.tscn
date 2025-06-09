@@ -1,0 +1,161 @@
+[gd_scene load_steps=19 format=3 uid="uid://dpd4b06fb0b1d"]
+
+[ext_resource type="Script" uid="uid://bjsv7ap1kfjtw" path="res://Scripts/Slugcat.gd" id="1_vjl1t"]
+[ext_resource type="Texture2D" uid="uid://dbhnh8t0op4ee" path="res://Assets/Slugpup.aseprite" id="2_lj5ft"]
+[ext_resource type="Shader" uid="uid://crtrdifsatfe1" path="res://addons/eye_dropper/eye_dropper.gdshader" id="2_s1mgx"]
+[ext_resource type="SpriteFrames" uid="uid://rfi8n3ot0g6a" path="res://Assets/Animations/Normal/Slugcat_Idle.aseprite" id="4_s6iwm"]
+[ext_resource type="Texture2D" uid="uid://qiktvaid8lnt" path="res://Assets/Exclamation.aseprite" id="5_12kjh"]
+[ext_resource type="Script" uid="uid://dwqv65m8ieqgg" path="res://addons/finite_state_machine/scripts/state_machine.gd" id="5_s1mgx"]
+[ext_resource type="Script" uid="uid://cy5cvsq5uplwa" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="6_dgjwa"]
+[ext_resource type="Script" uid="uid://cqx1oerkpvkvn" path="res://Scripts/SlugcatAI/idling.gd" id="6_o48ab"]
+[ext_resource type="Script" uid="uid://c351o4woiscxn" path="res://Scripts/SlugcatAI/walking.gd" id="7_lj5ft"]
+[ext_resource type="Script" uid="uid://dv3cv7o5uu61v" path="res://Scripts/SlugcatAI/needing.gd" id="8_u3aif"]
+[ext_resource type="Script" uid="uid://0myfm7biapxh" path="res://Scripts/slugcat_control.gd" id="9_s6iwm"]
+[ext_resource type="PackedScene" uid="uid://bug2xp6vtvsms" path="res://Scenes/love_particles.tscn" id="12_ifjmv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cm0pq"]
+resource_local_to_scene = true
+shader = ExtResource("2_s1mgx")
+shader_parameter/palette_array_size = 2
+shader_parameter/input_palette_array = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+shader_parameter/output_palette_array = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_s6iwm"]
+_data = [Vector2(0.6, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0224719), -2.69663, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_12kjh"]
+curve = SubResource("Curve_s6iwm")
+
+[sub_resource type="Gradient" id="Gradient_s6iwm"]
+colors = PackedColorArray(0.45098, 0.435294, 0.321569, 1, 0.504586, 0.400645, 0.405298, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_12kjh"]
+gradient = SubResource("Gradient_s6iwm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s6iwm"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(5, 1, 1)
+direction = Vector3(1, -1, 0)
+spread = 20.0
+initial_velocity_min = 41.66
+initial_velocity_max = 65.47
+gravity = Vector3(0, 98, 0)
+color_initial_ramp = SubResource("GradientTexture1D_12kjh")
+alpha_curve = SubResource("CurveTexture_12kjh")
+
+[node name="Slugcat" type="Node2D" node_paths=PackedStringArray("starting_state")]
+script = ExtResource("1_vjl1t")
+slugpup_texture = ExtResource("2_lj5ft")
+starting_state = NodePath("StateMachine/Idling")
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Visual"]
+material = SubResource("ShaderMaterial_cm0pq")
+sprite_frames = ExtResource("4_s6iwm")
+autoplay = "default"
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": "",
+"source_uid": -1
+},
+"slice_section": false
+}
+
+[node name="Exclamation" type="Sprite2D" parent="Visual"]
+visible = false
+material = SubResource("ShaderMaterial_cm0pq")
+position = Vector2(0, -21)
+texture = ExtResource("5_12kjh")
+
+[node name="WalkingParticles" type="GPUParticles2D" parent="Visual"]
+z_index = -1
+position = Vector2(0, 11)
+emitting = false
+amount = 4
+lifetime = 0.5
+preprocess = 1.0
+visibility_rect = Rect2(0, 0, 0, 0)
+process_material = SubResource("ParticleProcessMaterial_s6iwm")
+
+[node name="Debug_State" type="Marker2D" parent="."]
+visible = false
+position = Vector2(0, -19)
+gizmo_extents = 3.0
+
+[node name="WahStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-20, -20)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("5_s1mgx")
+metadata/_custom_type_script = "uid://dwqv65m8ieqgg"
+
+[node name="Idling" type="Node" parent="StateMachine"]
+script = ExtResource("6_o48ab")
+min_time = 3.0
+max_time = 6.0
+metadata/_custom_type_script = "uid://cy5cvsq5uplwa"
+
+[node name="WaitingTimer" type="Timer" parent="StateMachine/Idling"]
+one_shot = true
+
+[node name="Needing" type="Node" parent="StateMachine"]
+script = ExtResource("8_u3aif")
+min_time = 3.0
+max_time = 6.0
+metadata/_custom_type_script = "uid://cy5cvsq5uplwa"
+
+[node name="WaitingTimer" type="Timer" parent="StateMachine/Needing"]
+one_shot = true
+
+[node name="Walking" type="Node" parent="StateMachine" node_paths=PackedStringArray("walking_particles")]
+script = ExtResource("7_lj5ft")
+walking_particles = NodePath("../../Visual/WalkingParticles")
+metadata/_custom_type_script = "uid://cy5cvsq5uplwa"
+
+[node name="Following" type="Node" parent="StateMachine"]
+script = ExtResource("6_dgjwa")
+metadata/_custom_type_script = "uid://cy5cvsq5uplwa"
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("slugcat")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+mouse_filter = 1
+script = ExtResource("9_s6iwm")
+slugcat = NodePath("..")
+love_particles_scene = ExtResource("12_ifjmv")
+metadata/_edit_use_anchors_ = true
+
+[node name="WaaButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.175
+anchor_top = 0.15
+anchor_right = 0.85
+anchor_bottom = 0.825
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="timeout" from="StateMachine/Idling/WaitingTimer" to="StateMachine/Idling" method="_on_waiting_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Needing/WaitingTimer" to="StateMachine/Needing" method="_on_waiting_timer_timeout"]
+[connection signal="pressed" from="Control/WaaButton" to="Control" method="_on_waa_button_pressed"]

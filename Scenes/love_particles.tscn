@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bug2xp6vtvsms"]
+
+[ext_resource type="Shader" uid="uid://crtrdifsatfe1" path="res://addons/eye_dropper/eye_dropper.gdshader" id="1_3j8ma"]
+[ext_resource type="Texture2D" uid="uid://eeghjg88vwej" path="res://Assets/Heart.aseprite" id="2_pd63g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cm0pq"]
+resource_local_to_scene = true
+shader = ExtResource("1_3j8ma")
+shader_parameter/palette_array_size = 2
+shader_parameter/input_palette_array = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+shader_parameter/output_palette_array = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_ifjmv"]
+_data = [Vector2(0.761538, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.30574, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5xoci"]
+curve = SubResource("Curve_ifjmv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ifjmv"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 10, 0)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 30, 0)
+scale_min = 0.2
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_5xoci")
+
+[node name="LoveParticles" type="GPUParticles2D"]
+z_index = -1
+material = SubResource("ShaderMaterial_cm0pq")
+emitting = false
+texture = ExtResource("2_pd63g")
+one_shot = true
+explosiveness = 0.82
+process_material = SubResource("ParticleProcessMaterial_ifjmv")

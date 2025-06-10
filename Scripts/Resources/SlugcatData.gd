@@ -10,6 +10,8 @@ const SATURATION : float = 0.9
 @export var eyes_color : Color = Color.BLACK
 @export var type : SlugcatType
 
+var leader : Slugcat = null
+
 @export_subgroup("Personality")
 @export_range(3, 10, 0.5) var calmness : float = 5
 @export_range(3, 10, 0.5) var energic : float = 5

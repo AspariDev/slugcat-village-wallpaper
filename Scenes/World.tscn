@@ -64,13 +64,16 @@ fade_time = 0.0
 stream_count = 1
 stream_0 = ExtResource("9_uo7di")
 
-[node name="World" type="Node2D" node_paths=PackedStringArray("wander_zone")]
+[node name="World" type="Node2D" node_paths=PackedStringArray("wander_zone", "slugcat_zone")]
 script = ExtResource("1_j0p05")
 slugcat_types = Array[ExtResource("3_45d1s")]([ExtResource("4_y7y61")])
 slugpup_types = Array[ExtResource("3_45d1s")]([ExtResource("5_q2d71")])
 wander_zone = NodePath("WanderZone")
 slugcat_scene = ExtResource("1_5cjrv")
+slugcat_zone = NodePath("Slugcats")
 metadata/_edit_lock_ = true
+
+[node name="Slugcats" type="Node2D" parent="."]
 
 [node name="WanderZone" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

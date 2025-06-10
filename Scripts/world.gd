@@ -16,6 +16,7 @@ extends Node2D
 @export_subgroup("References")
 @export var wander_zone : Wanderzone
 @export var slugcat_scene : PackedScene
+@export var slugcat_zone : Node2D
 
 func _enter_tree() -> void:
 	var slugs_amount : int = randi_range(min_slugcats, max_slugcats)
@@ -23,7 +24,7 @@ func _enter_tree() -> void:
 		var slug : Slugcat = _create_slugcat()
 		slug.position = wander_zone.get_random_position()
 		slug.wander_zone = wander_zone
-		add_child(slug)
+		slugcat_zone.add_child(slug)
 		await get_tree().create_timer(randf_range(min_spawn_time, max_spawn_time)).timeout
 
 func _create_slugcat() -> Slugcat:

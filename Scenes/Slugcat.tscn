@@ -6,11 +6,11 @@
 [ext_resource type="SpriteFrames" uid="uid://rfi8n3ot0g6a" path="res://Assets/Animations/Normal/Slugcat_Idle.aseprite" id="4_s6iwm"]
 [ext_resource type="Texture2D" uid="uid://qiktvaid8lnt" path="res://Assets/Exclamation.aseprite" id="5_12kjh"]
 [ext_resource type="Script" uid="uid://dwqv65m8ieqgg" path="res://addons/finite_state_machine/scripts/state_machine.gd" id="5_s1mgx"]
-[ext_resource type="Script" uid="uid://cy5cvsq5uplwa" path="res://addons/finite_state_machine/scripts/state_machine_state.gd" id="6_dgjwa"]
 [ext_resource type="Script" uid="uid://cqx1oerkpvkvn" path="res://Scripts/SlugcatAI/idling.gd" id="6_o48ab"]
 [ext_resource type="Script" uid="uid://c351o4woiscxn" path="res://Scripts/SlugcatAI/walking.gd" id="7_lj5ft"]
 [ext_resource type="Script" uid="uid://dv3cv7o5uu61v" path="res://Scripts/SlugcatAI/needing.gd" id="8_u3aif"]
 [ext_resource type="Script" uid="uid://0myfm7biapxh" path="res://Scripts/slugcat_control.gd" id="9_s6iwm"]
+[ext_resource type="Script" uid="uid://cqko7drhll8ve" path="res://Scripts/SlugcatAI/following.gd" id="10_ifjmv"]
 [ext_resource type="PackedScene" uid="uid://bug2xp6vtvsms" path="res://Scenes/love_particles.tscn" id="12_ifjmv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cm0pq"]
@@ -127,7 +127,7 @@ walking_particles = NodePath("../../Visual/WalkingParticles")
 metadata/_custom_type_script = "uid://cy5cvsq5uplwa"
 
 [node name="Following" type="Node" parent="StateMachine"]
-script = ExtResource("6_dgjwa")
+script = ExtResource("10_ifjmv")
 metadata/_custom_type_script = "uid://cy5cvsq5uplwa"
 
 [node name="Control" type="Control" parent="." node_paths=PackedStringArray("slugcat")]

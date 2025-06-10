@@ -12,7 +12,7 @@ func _enter_tree() -> void:
 	timer.one_shot = true
 	timer.timeout.connect(start_event)
 	add_child(timer)
-	timer.start(randi_range(min_cooldown, max_cooldown))
+	restart()
 
 
 func start_event() -> void:
@@ -22,4 +22,5 @@ func start_event() -> void:
 		new_event.event_finished.connect(restart)
 
 func restart() -> void:
-	timer.start(randi_range(min_cooldown, max_cooldown))
+	var time : int = randi_range(min_cooldown, max_cooldown)
+	timer.start(time)

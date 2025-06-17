@@ -28,6 +28,8 @@ max_slugcats = 30
 min_spawn_time = 5.0
 max_spawn_time = 10.0
 slugpup_prob = 30.0
+min_pups = 2
+max_pups = 5
 slugcat_types = Array[ExtResource("2_cm0pq")]([ExtResource("3_fos0i"), ExtResource("4_3dxm6")])
 
 [node name="Bg" type="TextureRect" parent="."]

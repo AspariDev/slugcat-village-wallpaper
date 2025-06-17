@@ -84,4 +84,7 @@ func _set(property: StringName, value: Variant) -> bool:
 
 
 func _on_waiting_timer_timeout() -> void:
-	get_state_machine().set_next_state("Walking")
+	if (randi_range(0, 5) <= slugcat.slugcat_data.loving) and (slugcat.slugcat_data.leader != null):
+		get_state_machine().set_next_state("Following")
+	else:
+		get_state_machine().set_next_state("Walking")

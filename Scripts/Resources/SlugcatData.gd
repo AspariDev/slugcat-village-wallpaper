@@ -17,6 +17,7 @@ var leader : Slugcat = null
 @export_range(3, 10, 0.5) var energic : float = 5
 @export_range(3, 10, 0.5) var explorer : float = 5
 @export_range(0, 3, 0.5) var loving : float = 5
+@export_range(3, 10, 0.5) var timid : float = 5
 # PERSONALIDAD
 # Nerviosismo: - Impaciencia para quedarse quieto
 # Energico: Movilidad para ir a sitios
@@ -38,6 +39,7 @@ static func generate_random_slugcat(pup_percentage := 50) -> SlugcatData:
 	new_data.energic = roundf(randf_range(3, 10))
 	new_data.explorer = roundf(randf_range(3, 10))
 	new_data.loving = roundf(randf_range(0, 3))
+	new_data.timid = roundf(randf_range(3, 10))
 	return new_data
 
 static func get_trait_multiplier(personality_trait : float) -> float:

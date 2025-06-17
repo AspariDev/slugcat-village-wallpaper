@@ -99,8 +99,9 @@ gizmo_extents = 3.0
 [node name="WahStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-20, -20)
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("debug_draw")]
 script = ExtResource("5_s1mgx")
+debug_draw = NodePath("../Debug_State")
 metadata/_custom_type_script = "uid://dwqv65m8ieqgg"
 
 [node name="Idling" type="Node" parent="StateMachine"]
@@ -126,9 +127,15 @@ script = ExtResource("7_lj5ft")
 walking_particles = NodePath("../../Visual/WalkingParticles")
 metadata/_custom_type_script = "uid://cy5cvsq5uplwa"
 
-[node name="Following" type="Node" parent="StateMachine"]
+[node name="Following" type="Node" parent="StateMachine" node_paths=PackedStringArray("walking_particles")]
 script = ExtResource("10_ifjmv")
+min_time = 5.0
+max_time = 11.0
+walking_particles = NodePath("../../Visual/WalkingParticles")
 metadata/_custom_type_script = "uid://cy5cvsq5uplwa"
+
+[node name="WaitingTimer" type="Timer" parent="StateMachine/Following"]
+one_shot = true
 
 [node name="Control" type="Control" parent="." node_paths=PackedStringArray("slugcat")]
 layout_mode = 3

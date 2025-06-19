@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca4ehcjndemwc"]
+[gd_scene load_steps=11 format=3 uid="uid://ca4ehcjndemwc"]
 
 [ext_resource type="Script" uid="uid://brss5wqvm04ja" path="res://Scripts/Resources/SlugcatType.gd" id="2_cm0pq"]
 [ext_resource type="Resource" uid="uid://bx2dai5o5f6y0" path="res://Resources/Types/Normal.tres" id="3_fos0i"]
 [ext_resource type="PackedScene" uid="uid://d14d125f2sfi1" path="res://Scenes/World.tscn" id="3_r0du0"]
 [ext_resource type="Resource" uid="uid://dj1yt5ilgdv3t" path="res://Resources/Types/Fluffy.tres" id="4_3dxm6"]
+[ext_resource type="Resource" uid="uid://c03mvt07hfl60" path="res://Resources/Types/Pups/Normal_Pup.tres" id="5_fos0i"]
+[ext_resource type="Resource" uid="uid://tekpo0kwqhy6" path="res://Resources/Types/Fatty.tres" id="5_trn2v"]
+[ext_resource type="Resource" uid="uid://dyw3nrxot5mg2" path="res://Resources/Types/Pups/Fluffy_Pup.tres" id="6_3dxm6"]
+[ext_resource type="Resource" uid="uid://cr6g8vpe3wcl6" path="res://Resources/Types/Pups/Fatty_Pup.tres" id="8_03owx"]
 
 [sub_resource type="Gradient" id="Gradient_5nsto"]
 interpolation_mode = 2
@@ -24,13 +28,15 @@ metadata/_edit_lock_ = true
 
 [node name="World" parent="." instance=ExtResource("3_r0du0")]
 min_slugcats = 10
-max_slugcats = 30
+max_slugcats = 20
 min_spawn_time = 5.0
 max_spawn_time = 10.0
-slugpup_prob = 30.0
+slugpup_prob = 10.0
+mother_prob = 20.0
 min_pups = 2
 max_pups = 5
-slugcat_types = Array[ExtResource("2_cm0pq")]([ExtResource("3_fos0i"), ExtResource("4_3dxm6")])
+slugcat_types = Array[ExtResource("2_cm0pq")]([ExtResource("3_fos0i"), ExtResource("3_fos0i"), ExtResource("4_3dxm6"), ExtResource("5_trn2v")])
+slugpup_types = Array[ExtResource("2_cm0pq")]([ExtResource("5_fos0i"), ExtResource("5_fos0i"), ExtResource("6_3dxm6"), ExtResource("8_03owx")])
 
 [node name="Bg" type="TextureRect" parent="."]
 z_index = -2

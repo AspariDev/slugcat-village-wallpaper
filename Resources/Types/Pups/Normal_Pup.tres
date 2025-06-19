@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="SlugcatType" load_steps=12 format=3 uid="uid://c03mvt07hfl60"]
 
-[ext_resource type="SpriteFrames" uid="uid://dm1ha8nwdoku2" path="res://Assets/Animations/Normal_Pup/Slugpup_Idle.aseprite" id="1_nfc6h"]
+[ext_resource type="SpriteFrames" uid="uid://d1m68v8ihllqx" path="res://Assets/Animations/Normal_Pup/Slugpup_Idle.aseprite" id="1_nfc6h"]
 [ext_resource type="Script" uid="uid://brss5wqvm04ja" path="res://Scripts/Resources/SlugcatType.gd" id="1_ym4k1"]
-[ext_resource type="SpriteFrames" uid="uid://di7l7ks1rcbwf" path="res://Assets/Animations/Normal_Pup/Slugpup_Walking.aseprite" id="2_6qnsr"]
+[ext_resource type="SpriteFrames" uid="uid://dhvr8x14ui1og" path="res://Assets/Animations/Normal_Pup/Slugpup_Walking.aseprite" id="2_6qnsr"]
 [ext_resource type="AudioStream" uid="uid://csqj5qoifyv2q" path="res://Assets/Wahs/Pup/MeowPup1.wav" id="2_jwuhr"]
 [ext_resource type="AudioStream" uid="uid://bm8h1vtw1k2qg" path="res://Assets/Wahs/Pup/MeowPup2.wav" id="3_nfc6h"]
 [ext_resource type="AudioStream" uid="uid://cdmkrt7uc0ov7" path="res://Assets/Wahs/Pup/MeowPup3.wav" id="4_6qnsr"]

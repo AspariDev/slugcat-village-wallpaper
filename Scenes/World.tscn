@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bg76yn8if0p4f" path="res://Scripts/wander_zone.gd" id="3_5nsto"]
 [ext_resource type="Script" uid="uid://brss5wqvm04ja" path="res://Scripts/Resources/SlugcatType.gd" id="3_45d1s"]
 [ext_resource type="Resource" uid="uid://bx2dai5o5f6y0" path="res://Resources/Types/Normal.tres" id="4_y7y61"]
-[ext_resource type="Resource" uid="uid://c03mvt07hfl60" path="res://Resources/Types/Normal_Pup.tres" id="5_q2d71"]
+[ext_resource type="Resource" uid="uid://c03mvt07hfl60" path="res://Resources/Types/Pups/Normal_Pup.tres" id="5_q2d71"]
 [ext_resource type="Script" uid="uid://6gly74213b4p" path="res://Scripts/event_system.gd" id="7_y7y61"]
 [ext_resource type="Script" uid="uid://bwfhhq4yb846a" path="res://Scripts/Resources/Events/Event_Rain.gd" id="8_q2d71"]
 [ext_resource type="AudioStream" uid="uid://b27q3kjdt25pm" path="res://Assets/Sounds/rainLight1.wav" id="9_uo7di"]

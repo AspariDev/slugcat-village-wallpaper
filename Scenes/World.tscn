@@ -108,3 +108,4 @@ max_duration = 600.0
 [node name="RainAudio" type="AudioStreamPlayer" parent="EventSystem/RainEvent"]
 stream = SubResource("AudioStreamPlaylist_kn06e")
 volume_db = -20.0
+bus = &"Rain"

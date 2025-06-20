@@ -98,6 +98,8 @@ gizmo_extents = 3.0
 
 [node name="WahStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-20, -20)
+panning_strength = 2.0
+bus = &"Slugcat"
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("debug_draw")]
 script = ExtResource("5_s1mgx")

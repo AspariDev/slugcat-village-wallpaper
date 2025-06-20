@@ -1,0 +1,61 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bytu6su8ybb8b"]
+
+[ext_resource type="Texture2D" uid="uid://bdoyvk4j5xi0l" path="res://Assets/Theme/Fantasy UI/Transparent center/panel-transparent-center-001.png" id="1_bontb"]
+[ext_resource type="FontFile" uid="uid://i20j7u35upwg" path="res://Assets/Theme/Kenney Mini Square.ttf" id="1_lajxf"]
+[ext_resource type="Texture2D" uid="uid://3rjadaea3me5" path="res://Assets/Theme/Fantasy UI/Transparent center/panel-transparent-center-000.png" id="1_qrlj4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1o5ae"]
+texture = ExtResource("1_qrlj4")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+region_rect = Rect2(0, 0, 48, 48)
+modulate_color = Color(0.341176, 0.341176, 0.341176, 0.74902)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l41bu"]
+texture = ExtResource("1_qrlj4")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+region_rect = Rect2(0, 0, 48, 48)
+modulate_color = Color(0.454524, 0.454524, 0.454524, 0.831373)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qrlj4"]
+texture = ExtResource("1_qrlj4")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+region_rect = Rect2(0, 0, 48, 48)
+modulate_color = Color(1, 1, 1, 0.352941)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_250io"]
+texture = ExtResource("1_qrlj4")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+region_rect = Rect2(0, 0, 48, 48)
+modulate_color = Color(0.2, 0.2, 0.2, 0.921569)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_24iaa"]
+texture = ExtResource("1_bontb")
+texture_margin_left = 11.0
+texture_margin_top = 12.0
+texture_margin_right = 11.0
+texture_margin_bottom = 11.0
+region_rect = Rect2(0, 0, 48, 48)
+modulate_color = Color(0, 0, 0, 0.690196)
+
+[resource]
+default_font = ExtResource("1_lajxf")
+default_font_size = 8
+Button/constants/outline_size = 2
+Button/font_sizes/font_size = 16
+Button/styles/focus = SubResource("StyleBoxTexture_1o5ae")
+Button/styles/hover = SubResource("StyleBoxTexture_l41bu")
+Button/styles/normal = SubResource("StyleBoxTexture_qrlj4")
+Button/styles/pressed = SubResource("StyleBoxTexture_250io")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_24iaa")

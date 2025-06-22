@@ -8,7 +8,7 @@
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Config_Panel" type="PanelContainer"]
+[node name="Config_Panel" type="PanelContainer" node_paths=PackedStringArray("master_vol_slider", "slug_vol_slider", "rain_vol_slider")]
 z_index = 1
 anchors_preset = -1
 anchor_left = 0.345833
@@ -19,6 +19,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_senv4")
 script = ExtResource("2_66xkf")
+master_vol_slider = NodePath("MarginContainer/VBoxContainer/MasterVolume/MasterSlider")
+slug_vol_slider = NodePath("MarginContainer/VBoxContainer/SlugcatVolume/SlugSlider")
+rain_vol_slider = NodePath("MarginContainer/VBoxContainer/RainVolume/RainSlider")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -47,8 +50,10 @@ text = "Master volume"
 label_settings = ExtResource("2_bj66x")
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MasterVolume"]
+[node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MasterVolume"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
 
 [node name="SlugcatVolume" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -59,8 +64,10 @@ text = "Slugcat Volume"
 label_settings = ExtResource("2_bj66x")
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SlugcatVolume"]
+[node name="SlugSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SlugcatVolume"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
 
 [node name="RainVolume" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -71,13 +78,18 @@ text = "Rain Volume"
 label_settings = ExtResource("2_bj66x")
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/RainVolume"]
+[node name="RainSlider" type="HSlider" parent="MarginContainer/VBoxContainer/RainVolume"]
 layout_mode = 2
+max_value = 1.0
+step = 0.001
 
 [node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Close"
+text = "Save"
 
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/MasterVolume/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/SlugcatVolume/SlugSlider" to="." method="_on_slug_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/RainVolume/RainSlider" to="." method="_on_rain_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

@@ -10,7 +10,7 @@
 - Drag and drop or select the "SlugVillage_Lively.zip" file
 - Enjoy!
 ### Wallpaper Engine
-- Download from the [Steam Workshop]()
+- Download from the [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3526750330)
 - Open Wallpaper Engine
 - Apply the Wallpaper
 - Enjoy!

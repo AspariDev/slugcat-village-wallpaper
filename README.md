@@ -7,12 +7,14 @@
 - Download "SlugVillage_Lively.zip"
 - Open Lively
 - Press the "+" button to add a new Wallpaper
-- Drag and drop or select the "SlugVillage_Lively.zip" file
+- Drag and drop or select the "SlugVillage_Lively.zip" file from the [most recent release](https://github.com/AspariDev/slugcat-village-wallpaper/releases)]
 - Enjoy!
 ### Wallpaper Engine
-- Download from the [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3526750330)
+- Download the "SlugcatVillage.exe" from the [most recent release](https://github.com/AspariDev/slugcat-village-wallpaper/releases)]
 - Open Wallpaper Engine
-- Apply the Wallpaper
+- Create a New Wallpaper
+- Drag and drop the "SlugcatVillage.exe" file
+- Save and apply the wallpaper
 - Enjoy!
 ### Others
 - In the [releases]() you can download the "SlugVillage.exe" file, the one that it's running in the programs!

@@ -23,14 +23,11 @@ func _enter_state() -> void:
 	if started: return
 	started = true
 	
-	
 	var slug_data : SlugcatData = slugcat.slugcat_data
-	
-	
+
 	slugcat.sprite.sprite_frames = slug_data.type.animation_idle
 	slugcat.sprite.play("default")
 	slugcat.sprite.speed_scale = slug_data.get_trait_multiplier(slug_data.calmness)
-	
 	
 	var waiting_time : float = randf_range(min_time, max_time) * slug_data.get_trait_multiplier(slug_data.calmness)
 	waiting_timer.start(waiting_time)
@@ -84,4 +81,7 @@ func _set(property: StringName, value: Variant) -> bool:
 
 
 func _on_waiting_timer_timeout() -> void:
-	get_state_machine().set_next_state("Walking")
+	if (randi_range(0, 5) <= slugcat.slugcat_data.loving) and (slugcat.slugcat_data.leader != null):
+		get_state_machine().set_next_state("Following")
+	else:
+		get_state_machine().set_next_state("Walking")

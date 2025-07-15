@@ -1,6 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca4ehcjndemwc"]
+[gd_scene load_steps=15 format=3 uid="uid://ca4ehcjndemwc"]
 
+[ext_resource type="Script" uid="uid://brss5wqvm04ja" path="res://Scripts/Resources/SlugcatType.gd" id="2_cm0pq"]
+[ext_resource type="Resource" uid="uid://bx2dai5o5f6y0" path="res://Resources/Types/Normal.tres" id="3_fos0i"]
 [ext_resource type="PackedScene" uid="uid://d14d125f2sfi1" path="res://Scenes/World.tscn" id="3_r0du0"]
+[ext_resource type="Resource" uid="uid://dj1yt5ilgdv3t" path="res://Resources/Types/Fluffy.tres" id="4_3dxm6"]
+[ext_resource type="Resource" uid="uid://c03mvt07hfl60" path="res://Resources/Types/Pups/Normal_Pup.tres" id="5_fos0i"]
+[ext_resource type="Resource" uid="uid://tekpo0kwqhy6" path="res://Resources/Types/Fatty.tres" id="5_trn2v"]
+[ext_resource type="Resource" uid="uid://dyw3nrxot5mg2" path="res://Resources/Types/Pups/Fluffy_Pup.tres" id="6_3dxm6"]
+[ext_resource type="Resource" uid="uid://cr6g8vpe3wcl6" path="res://Resources/Types/Pups/Fatty_Pup.tres" id="8_03owx"]
+[ext_resource type="PackedScene" uid="uid://bhke835v53avm" path="res://Scenes/config_panel.tscn" id="9_03owx"]
+[ext_resource type="Script" uid="uid://lmq00tx7hgwo" path="res://Scripts/main_control.gd" id="9_5vvyt"]
+[ext_resource type="Theme" uid="uid://bytu6su8ybb8b" path="res://Resources/Theme/Main_Theme.tres" id="10_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://gn6vx1rihpnc" path="res://Assets/Theme/Kennney Game Icons/gear_white.png" id="11_20pc6"]
 
 [sub_resource type="Gradient" id="Gradient_5nsto"]
 interpolation_mode = 2
@@ -21,10 +32,15 @@ metadata/_edit_lock_ = true
 
 [node name="World" parent="." instance=ExtResource("3_r0du0")]
 min_slugcats = 10
-max_slugcats = 30
+max_slugcats = 20
 min_spawn_time = 5.0
 max_spawn_time = 10.0
-slugpup_prob = 30.0
+slugpup_prob = 10.0
+mother_prob = 20.0
+min_pups = 2
+max_pups = 5
+slugcat_types = Array[ExtResource("2_cm0pq")]([ExtResource("3_fos0i"), ExtResource("3_fos0i"), ExtResource("4_3dxm6"), ExtResource("5_trn2v")])
+slugpup_types = Array[ExtResource("2_cm0pq")]([ExtResource("5_fos0i"), ExtResource("5_fos0i"), ExtResource("6_3dxm6"), ExtResource("8_03owx")])
 
 [node name="Bg" type="TextureRect" parent="."]
 z_index = -2
@@ -37,3 +53,39 @@ size_flags_horizontal = 3
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_glv2v")
 metadata/_edit_lock_ = true
+
+[node name="Main_Control" type="Control" parent="." node_paths=PackedStringArray("config_panel", "config_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_5vvyt")
+config_panel = NodePath("Config_Panel")
+config_button = NodePath("Config_Button")
+metadata/_edit_use_anchors_ = true
+
+[node name="Config_Panel" parent="Main_Control" instance=ExtResource("9_03owx")]
+visible = false
+layout_mode = 1
+mouse_filter = 1
+
+[node name="Config_Button" type="Button" parent="Main_Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.941667
+anchor_right = 1.0
+anchor_bottom = 0.103704
+grow_horizontal = 0
+theme = ExtResource("10_wkp8b")
+icon = ExtResource("11_20pc6")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="Main_Control/Config_Button" to="Main_Control" method="_on_config_button_mouse_entered"]
+[connection signal="mouse_exited" from="Main_Control/Config_Button" to="Main_Control" method="_on_config_button_mouse_exited"]
+[connection signal="pressed" from="Main_Control/Config_Button" to="Main_Control" method="_on_config_button_pressed"]

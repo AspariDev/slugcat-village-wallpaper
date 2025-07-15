@@ -1,4 +1,0 @@
-1. Download Lively Wallpaper from Github (NOT FROM THE WINDOWS STORE): https://github.com/rocksdanister/lively/releases
-2. Add a new wallpaper to lively
-3. Drop the SlugVillage file
-4. Enjoy!

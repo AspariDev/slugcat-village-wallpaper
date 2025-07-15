@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhke835v53avm"]
+
+[ext_resource type="Theme" uid="uid://bytu6su8ybb8b" path="res://Resources/Theme/Main_Theme.tres" id="1_senv4"]
+[ext_resource type="Script" uid="uid://b7ue4pfeh6dy7" path="res://Scripts/config_panel.gd" id="2_66xkf"]
+[ext_resource type="LabelSettings" uid="uid://b0bkof4j3t0bh" path="res://Resources/Theme/Normal_Text_LabelSettings.tres" id="2_bj66x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_senv4"]
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Config_Panel" type="PanelContainer" node_paths=PackedStringArray("master_vol_slider", "slug_vol_slider", "rain_vol_slider")]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.346
+anchor_top = 0.124
+anchor_right = 0.654
+anchor_bottom = 0.876
+offset_left = -0.0801544
+offset_top = 24.02
+offset_right = 0.0801392
+offset_bottom = -24.02
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_senv4")
+script = ExtResource("2_66xkf")
+master_vol_slider = NodePath("MarginContainer/VBoxContainer/MasterVolume/MasterSlider")
+slug_vol_slider = NodePath("MarginContainer/VBoxContainer/SlugcatVolume/SlugSlider")
+rain_vol_slider = NodePath("MarginContainer/VBoxContainer/RainVolume/RainSlider")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Config_Lbl" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Configuration"
+label_settings = SubResource("LabelSettings_senv4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterVolume" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MasterVolume"]
+layout_mode = 2
+text = "Master volume"
+label_settings = ExtResource("2_bj66x")
+vertical_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MasterVolume"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="SlugcatVolume" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SlugcatVolume"]
+layout_mode = 2
+text = "Slugcat Volume"
+label_settings = ExtResource("2_bj66x")
+vertical_alignment = 1
+
+[node name="SlugSlider" type="HSlider" parent="MarginContainer/VBoxContainer/SlugcatVolume"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="RainVolume" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/RainVolume"]
+layout_mode = 2
+text = "Rain Volume"
+label_settings = ExtResource("2_bj66x")
+vertical_alignment = 1
+
+[node name="RainSlider" type="HSlider" parent="MarginContainer/VBoxContainer/RainVolume"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Save"
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/MasterVolume/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/SlugcatVolume/SlugSlider" to="." method="_on_slug_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/RainVolume/RainSlider" to="." method="_on_rain_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

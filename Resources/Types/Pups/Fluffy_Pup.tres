@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SlugcatType" load_steps=12 format=3 uid="uid://dyw3nrxot5mg2"]
+
+[ext_resource type="SpriteFrames" uid="uid://dm1ha8nwdoku2" path="res://Assets/Animations/Fluffy_Pup/Fluffy_Pup_Idle.aseprite" id="1_2o50k"]
+[ext_resource type="SpriteFrames" uid="uid://di7l7ks1rcbwf" path="res://Assets/Animations/Fluffy_Pup/Fluffy_Pup_Walking.aseprite" id="2_ht4fd"]
+[ext_resource type="Script" uid="uid://brss5wqvm04ja" path="res://Scripts/Resources/SlugcatType.gd" id="3_roi6x"]
+[ext_resource type="AudioStream" uid="uid://csqj5qoifyv2q" path="res://Assets/Wahs/Pup/MeowPup1.wav" id="4_ggcde"]
+[ext_resource type="AudioStream" uid="uid://bm8h1vtw1k2qg" path="res://Assets/Wahs/Pup/MeowPup2.wav" id="5_2dc8x"]
+[ext_resource type="AudioStream" uid="uid://cdmkrt7uc0ov7" path="res://Assets/Wahs/Pup/MeowPup3.wav" id="6_f47et"]
+[ext_resource type="AudioStream" uid="uid://uhrj66dsd1mq" path="res://Assets/Wahs/Pup/MeowPup4.wav" id="7_3g7tt"]
+[ext_resource type="AudioStream" uid="uid://b3yafl2bicysa" path="res://Assets/Wahs/Pup/MeowPup5.wav" id="8_bfogm"]
+[ext_resource type="AudioStream" uid="uid://bmyg1s3pnr86w" path="res://Assets/Wahs/Pup/MeowPup6.wav" id="9_0xm6w"]
+[ext_resource type="AudioStream" uid="uid://ru15a4oqiftu" path="res://Assets/Wahs/Pup/MeowPup7.wav" id="10_73l8n"]
+[ext_resource type="AudioStream" uid="uid://ywjifvcy4wpy" path="res://Assets/Wahs/Pup/MeowPup8.wav" id="11_tra8s"]
+
+[resource]
+script = ExtResource("3_roi6x")
+slugpup = true
+sounds = Array[AudioStream]([ExtResource("4_ggcde"), ExtResource("5_2dc8x"), ExtResource("6_f47et"), ExtResource("7_3g7tt"), ExtResource("8_bfogm"), ExtResource("9_0xm6w"), ExtResource("10_73l8n"), ExtResource("11_tra8s")])
+animation_idle = ExtResource("1_2o50k")
+animation_walking = ExtResource("2_ht4fd")
+metadata/_custom_type_script = "uid://brss5wqvm04ja"

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bg76yn8if0p4f" path="res://Scripts/wander_zone.gd" id="3_5nsto"]
 [ext_resource type="Script" uid="uid://brss5wqvm04ja" path="res://Scripts/Resources/SlugcatType.gd" id="3_45d1s"]
 [ext_resource type="Resource" uid="uid://bx2dai5o5f6y0" path="res://Resources/Types/Normal.tres" id="4_y7y61"]
-[ext_resource type="Resource" uid="uid://c03mvt07hfl60" path="res://Resources/Types/Normal_Pup.tres" id="5_q2d71"]
+[ext_resource type="Resource" uid="uid://c03mvt07hfl60" path="res://Resources/Types/Pups/Normal_Pup.tres" id="5_q2d71"]
 [ext_resource type="Script" uid="uid://6gly74213b4p" path="res://Scripts/event_system.gd" id="7_y7y61"]
 [ext_resource type="Script" uid="uid://bwfhhq4yb846a" path="res://Scripts/Resources/Events/Event_Rain.gd" id="8_q2d71"]
 [ext_resource type="AudioStream" uid="uid://b27q3kjdt25pm" path="res://Assets/Sounds/rainLight1.wav" id="9_uo7di"]
@@ -64,13 +64,16 @@ fade_time = 0.0
 stream_count = 1
 stream_0 = ExtResource("9_uo7di")
 
-[node name="World" type="Node2D" node_paths=PackedStringArray("wander_zone")]
+[node name="World" type="Node2D" node_paths=PackedStringArray("wander_zone", "slugcat_zone")]
 script = ExtResource("1_j0p05")
 slugcat_types = Array[ExtResource("3_45d1s")]([ExtResource("4_y7y61")])
 slugpup_types = Array[ExtResource("3_45d1s")]([ExtResource("5_q2d71")])
 wander_zone = NodePath("WanderZone")
 slugcat_scene = ExtResource("1_5cjrv")
+slugcat_zone = NodePath("Slugcats")
 metadata/_edit_lock_ = true
+
+[node name="Slugcats" type="Node2D" parent="."]
 
 [node name="WanderZone" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
@@ -105,3 +108,4 @@ max_duration = 600.0
 [node name="RainAudio" type="AudioStreamPlayer" parent="EventSystem/RainEvent"]
 stream = SubResource("AudioStreamPlaylist_kn06e")
 volume_db = -20.0
+bus = &"Rain"

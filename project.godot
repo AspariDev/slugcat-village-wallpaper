@@ -16,6 +16,10 @@ run/main_scene="uid://ca4ehcjndemwc"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalSettings="*res://Scripts/Autoloads/global_settings.gd"
+
 [display]
 
 window/size/viewport_width=480
@@ -26,7 +30,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/finite_state_machine/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/finite_state_machine/plugin.cfg", "res://addons/godot_notebook/plugin.cfg", "res://addons/inspector_tabs/plugin.cfg", "res://addons/script-ide/plugin.cfg")
 
 [file_customization]
 

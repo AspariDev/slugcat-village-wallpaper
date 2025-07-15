@@ -14,6 +14,8 @@
 - Open Wallpaper Engine
 - Apply the Wallpaper
 - Enjoy!
+### Others
+- In the [releases]() you can download the "SlugVillage.exe" file, the one that it's running in the programs!
 
 ## Features
 - Custom slugcats with different colors and traits
@@ -22,7 +24,7 @@
 - Multiple "types", both for slugpups and slugcats
 - Events (For now, just rain)
 - Petting slugcats!! (Sometimes they want your attention)
-
+- A configuration button (it's invisible, go to the upper right corner) to change the volume
 
 ## Credits
 - Art and code by me, you can follow me in [Tumblr](https://www.tumblr.com/blog/aspari)!
